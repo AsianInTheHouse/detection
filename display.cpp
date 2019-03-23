@@ -48,18 +48,18 @@ int display (state direction)
 			bcm2835_gpio_fsel(PIN4, BCM2835_GPIO_FSEL_INPT);
 			
 			bcm2835_gpio_set(PIN0);
-			bcm2835_gpio_set(PIN1);
-			bcm2835_gpio_clr(PIN2);
+			bcm2835_gpio_set(PIN2);
+			bcm2835_gpio_clr(PIN1);
 
 		case north_out:
 			bcm2835_gpio_fsel(PIN1, BCM2835_GPIO_FSEL_OUTP);
 			bcm2835_gpio_fsel(PIN2, BCM2835_GPIO_FSEL_INPT);
-			bcm2835_gpio_fsel(PIN3, BCM2835_GPIO_FSEL_OUTP);
-			bcm2835_gpio_fsel(PIN4, BCM2835_GPIO_FSEL_INPT);
+			bcm2835_gpio_fsel(PIN3, BCM2835_GPIO_FSEL_INPT);
+			bcm2835_gpio_fsel(PIN4, BCM2835_GPIO_FSEL_OUTP);
 			
 			bcm2835_gpio_set(PIN0);
-			bcm2835_gpio_set(PIN1);
-			bcm2835_gpio_clr(PIN3);
+			bcm2835_gpio_set(PIN4);
+			bcm2835_gpio_clr(PIN1);
 		case south_in:
 			bcm2835_gpio_fsel(PIN1, BCM2835_GPIO_FSEL_INPT);
 			bcm2835_gpio_fsel(PIN2, BCM2835_GPIO_FSEL_INPT);
@@ -67,8 +67,8 @@ int display (state direction)
 			bcm2835_gpio_fsel(PIN4, BCM2835_GPIO_FSEL_OUTP);
 			
 			bcm2835_gpio_set(PIN0);
-			bcm2835_gpio_set(PIN4);
-			bcm2835_gpio_clr(PIN3);
+			bcm2835_gpio_set(PIN3);
+			bcm2835_gpio_clr(PIN4);
 		case south_out:
 			bcm2835_gpio_fsel(PIN1, BCM2835_GPIO_FSEL_INPT);
 			bcm2835_gpio_fsel(PIN2, BCM2835_GPIO_FSEL_OUTP);
@@ -76,28 +76,28 @@ int display (state direction)
 			bcm2835_gpio_fsel(PIN4, BCM2835_GPIO_FSEL_OUTP);
 			
 			bcm2835_gpio_set(PIN0);
-			bcm2835_gpio_set(PIN4);
-			bcm2835_gpio_clr(PIN2);
+			bcm2835_gpio_set(PIN2);
+			bcm2835_gpio_clr(PIN4);
 
 		case west_in:
-			bcm2835_gpio_fsel(PIN1, BCM2835_GPIO_FSEL_INPT);
-			bcm2835_gpio_fsel(PIN2, BCM2835_GPIO_FSEL_OUTP);
-			bcm2835_gpio_fsel(PIN3, BCM2835_GPIO_FSEL_OUTP);
-			bcm2835_gpio_fsel(PIN4, BCM2835_GPIO_FSEL_INPT);
-			
-			bcm2835_gpio_set(PIN0);
-			bcm2835_gpio_set(PIN3);
-			bcm2835_gpio_clr(PIN2);
-
-		case west_out:
 			bcm2835_gpio_fsel(PIN1, BCM2835_GPIO_FSEL_OUTP);
 			bcm2835_gpio_fsel(PIN2, BCM2835_GPIO_FSEL_INPT);
 			bcm2835_gpio_fsel(PIN3, BCM2835_GPIO_FSEL_OUTP);
 			bcm2835_gpio_fsel(PIN4, BCM2835_GPIO_FSEL_INPT);
 			
 			bcm2835_gpio_set(PIN0);
-			bcm2835_gpio_set(PIN3);
-			bcm2835_gpio_clr(PIN1);
+			bcm2835_gpio_set(PIN1);
+			bcm2835_gpio_clr(PIN3);
+
+		case west_out:
+			bcm2835_gpio_fsel(PIN1, BCM2835_GPIO_FSEL_INPT);
+			bcm2835_gpio_fsel(PIN2, BCM2835_GPIO_FSEL_OUTP);
+			bcm2835_gpio_fsel(PIN3, BCM2835_GPIO_FSEL_OUTP);
+			bcm2835_gpio_fsel(PIN4, BCM2835_GPIO_FSEL_INPT);
+			
+			bcm2835_gpio_set(PIN0);
+			bcm2835_gpio_set(PIN2);
+			bcm2835_gpio_clr(PIN3);
 
 		case east_in:
 			bcm2835_gpio_fsel(PIN1, BCM2835_GPIO_FSEL_INPT);
@@ -106,8 +106,8 @@ int display (state direction)
 			bcm2835_gpio_fsel(PIN4, BCM2835_GPIO_FSEL_OUTP);
 			
 			bcm2835_gpio_set(PIN0);
-			bcm2835_gpio_set(PIN2);
-			bcm2835_gpio_clr(PIN4);
+			bcm2835_gpio_set(PIN4);
+			bcm2835_gpio_clr(PIN2);
 
 		case east_out:
 			bcm2835_gpio_fsel(PIN1, BCM2835_GPIO_FSEL_INPT);
@@ -116,21 +116,21 @@ int display (state direction)
 			bcm2835_gpio_fsel(PIN4, BCM2835_GPIO_FSEL_INPT);
 			
 			bcm2835_gpio_set(PIN0);
-			bcm2835_gpio_set(PIN2);
-			bcm2835_gpio_clr(PIN3);
+			bcm2835_gpio_set(PIN3);
+			bcm2835_gpio_clr(PIN2);
 
 		/* next 4 state turn on 2 leds at a time 
 		to signify location, but not direction*/
 		case north:
 			bcm2835_gpio_fsel(PIN1, BCM2835_GPIO_FSEL_OUTP);
 			bcm2835_gpio_fsel(PIN2, BCM2835_GPIO_FSEL_OUTP);
-			bcm2835_gpio_fsel(PIN3, BCM2835_GPIO_FSEL_OUTP);
-			bcm2835_gpio_fsel(PIN4, BCM2835_GPIO_FSEL_INPT);
+			bcm2835_gpio_fsel(PIN3, BCM2835_GPIO_FSEL_INPT);
+			bcm2835_gpio_fsel(PIN4, BCM2835_GPIO_FSEL_OUTP);
 			
 			bcm2835_gpio_set(PIN0);
-			bcm2835_gpio_set(PIN1);
-			bcm2835_gpio_clr(PIN2);
-			bcm2835_gpio_clr(PIN3);
+			bcm2835_gpio_clr(PIN1);
+			bcm2835_gpio_set(PIN2);
+			bcm2835_gpio_set(PIN4);
 
 		case south:
 			bcm2835_gpio_fsel(PIN1, BCM2835_GPIO_FSEL_INPT);
@@ -139,9 +139,9 @@ int display (state direction)
 			bcm2835_gpio_fsel(PIN4, BCM2835_GPIO_FSEL_OUTP);
 			
 			bcm2835_gpio_set(PIN0);
-			bcm2835_gpio_set(PIN4);
-			bcm2835_gpio_clr(PIN3);
-			bcm2835_gpio_clr(PIN2);
+			bcm2835_gpio_clr(PIN4);
+			bcm2835_gpio_set(PIN3);
+			bcm2835_gpio_set(PIN2);
 
 		case east:
 			bcm2835_gpio_fsel(PIN1, BCM2835_GPIO_FSEL_INPT);
@@ -150,9 +150,9 @@ int display (state direction)
 			bcm2835_gpio_fsel(PIN4, BCM2835_GPIO_FSEL_OUTP);
 			
 			bcm2835_gpio_set(PIN0);
-			bcm2835_gpio_set(PIN2);
-			bcm2835_gpio_clr(PIN3);
-			bcm2835_gpio_clr(PIN4);
+			bcm2835_gpio_clr(PIN2);
+			bcm2835_gpio_set(PIN3);
+			bcm2835_gpio_set(PIN4);
 
 		case west:
 			bcm2835_gpio_fsel(PIN1, BCM2835_GPIO_FSEL_OUTP);
@@ -161,9 +161,9 @@ int display (state direction)
 			bcm2835_gpio_fsel(PIN4, BCM2835_GPIO_FSEL_INPT);
 			
 			bcm2835_gpio_set(PIN0);
-			bcm2835_gpio_set(PIN3);
-			bcm2835_gpio_clr(PIN1);
-			bcm2835_gpio_clr(PIN2);
+			bcm2835_gpio_clr(PIN3);
+			bcm2835_gpio_set(PIN1);
+			bcm2835_gpio_set(PIN2);
 
 	}
 	return 0;
